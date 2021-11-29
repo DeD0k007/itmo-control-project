@@ -13,7 +13,13 @@ class PhoneBook:
         self.contactNumber = {"Alex": 915}
 
     def getContactByName(self, name):
-        return self.contactNumber.get(name)
+        res = self.contactNumber.get(name)
+        if not res:
+            res = "Кажется такого человека нет в базе."
+        return res
 
     def postNewContact(self, name, contactNumber):
-        self.contactNumber[str(name)] = int(contactNumber)
+        try:
+            self.contactNumber[str(name)] = int(contactNumber)
+        except ValueError:
+            self.contactNumber[str(name)] = 123
