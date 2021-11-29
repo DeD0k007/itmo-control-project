@@ -16,4 +16,4 @@ class PhoneBook:
         return self.contactNumber.get(name)
 
     def postNewContact(self, name, contactNumber):
-        self.contactNumber[name] = contactNumber
+        self.contactNumber[str(name)] = int(contactNumber)
